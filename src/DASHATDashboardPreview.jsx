@@ -164,7 +164,7 @@ export default function DASHATDashboardPreview() {
       <div className="max-w-[1200px] mx-auto">
         <header className="mb-6">
           <h1 className="text-2xl font-bold">DASHAT — Dashboard Analytics Preview</h1>
-          <p className="text-sm text-slate-600">Konsep orkestrasai AI untuk integrasi 80 Puskesmas — preview hasil penggabungan data (kunjungan, PONED, peralatan, SDM).</p>
+          <p className="text-sm text-slate-300">Konsep orkestrasai AI untuk integrasi 80 Puskesmas — preview hasil penggabungan data (kunjungan, PONED, peralatan, SDM).</p>
         </header>
 
         <div className="grid grid-cols-12 gap-4">
@@ -207,7 +207,7 @@ export default function DASHATDashboardPreview() {
 
               <div className="bg-slate-800 p-4 rounded-2xl shadow-md">
                 <h4 className="font-semibold mb-2">Prediksi Kunjungan (AI)</h4>
-                <div className="text-sm text-slate-600 mb-2">{aiStatus.message}</div>
+                <div className="text-sm text-slate-300 mb-2">{aiStatus.message}</div>
                 <div className="flex gap-2">
                   <button onClick={runAIPrediction} disabled={aiStatus.running} className="px-3 py-2 rounded-2xl bg-indigo-600 text-white text-sm shadow-sm">
                     {aiStatus.running ? "Menjalankan..." : "Jalankan Prediksi (LSTM)"}
@@ -232,7 +232,7 @@ export default function DASHATDashboardPreview() {
           <aside className="col-span-4">
             <div className="bg-slate-800 p-4 rounded-2xl shadow-md mb-4">
               <h4 className="font-semibold mb-2">AI Orchestrator</h4>
-              <div className="text-sm text-slate-600 mb-3">Panel orkestrasi AI: hubungkan model prediksi, deteksi fraud, dan NLP chatbot warga.</div>
+              <div className="text-sm text-slate-300 mb-3">Panel orkestrasi AI: hubungkan model prediksi, deteksi fraud, dan NLP chatbot warga.</div>
               <div className="space-y-2">
                 <button className="w-full text-left px-3 py-2 rounded-2xl bg-emerald-50 border border-emerald-200">Orkestrasi: Chatbot NLP (Bandung Sehat AI)</button>
                 <button className="w-full text-left px-3 py-2 rounded-2xl bg-yellow-50 border border-yellow-200">Deteksi Fraud (IsolationForest)</button>
@@ -249,7 +249,7 @@ export default function DASHATDashboardPreview() {
 
             <div className="bg-slate-800 p-4 rounded-2xl shadow-md">
               <h4 className="font-semibold mb-2">SDM & Kapasitas</h4>
-              <div className="text-sm text-slate-600 mb-2">Total tenaga: {staffCount}</div>
+              <div className="text-sm text-slate-300 mb-2">Total tenaga: {staffCount}</div>
               <div className="overflow-auto max-h-48">
                 <StaffTable />
               </div>
@@ -271,7 +271,7 @@ export default function DASHATDashboardPreview() {
 
           <div className="bg-slate-800 p-4 rounded-2xl shadow-md">
             <h4 className="font-semibold mb-2">Metadata</h4>
-            <div className="text-xs text-slate-600">Data digabung dari: 6 file (PPTX, XLSX). Preview ini menampilkan ringkasan yang dapat di-link ke DASHAT production.</div>
+            <div className="text-xs text-slate-300">Data digabung dari: 6 file (PPTX, XLSX). Preview ini menampilkan ringkasan yang dapat di-link ke DASHAT production.</div>
           </div>
         </footer>
       </div>
