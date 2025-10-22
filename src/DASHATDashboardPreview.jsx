@@ -121,10 +121,10 @@ export default function DASHATDashboardPreview() {
   const EquipmentList = () => (
     <div className="space-y-2">
       {equipment.map((eq, idx) => (
-        <div key={idx} className="flex justify-between items-center p-2 bg-white rounded-2xl shadow-sm">
+        <div key={idx} className="flex justify-between items-center p-2 bg-slate-800 rounded-2xl shadow-sm">
           <div>
             <div className="font-semibold">{eq.name}</div>
-            <div className="text-sm text-slate-500">Status: {eq.status} • Qty: {eq.qty}</div>
+            <div className="text-sm text-slate-300">Status: {eq.status} • Qty: {eq.qty}</div>
           </div>
           <div className="text-xs font-medium text-right">
             {eq.status === "Good" ? (
@@ -150,7 +150,7 @@ export default function DASHATDashboardPreview() {
       </thead>
       <tbody>
         {staff.map((s, i) => (
-          <tr key={i} className="odd:bg-white even:bg-slate-50">
+          <tr key={i} className="odd:bg-slate-800 even:bg-slate-50">
             <td className="py-2">{s.role}</td>
             <td className="py-2">{s.count}</td>
           </tr>
@@ -160,7 +160,7 @@ export default function DASHATDashboardPreview() {
   );
 
   return (
-    <div className="p-6 bg-slate-50 min-h-screen">
+    <div className="p-6 bg-slate-900 min-h-screen text-slate-100">
       <div className="max-w-[1200px] mx-auto">
         <header className="mb-6">
           <h1 className="text-2xl font-bold">DASHAT — Dashboard Analytics Preview</h1>
@@ -171,41 +171,41 @@ export default function DASHATDashboardPreview() {
           {/* LEFT: KPI & Charts */}
           <section className="col-span-8">
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="grid grid-cols-3 gap-4 mb-4">
-              <div className="col-span-1 bg-white p-4 rounded-2xl shadow-md">
-                <div className="text-xs text-slate-500">Total Kunjungan (Jan-Sep)</div>
+              <div className="col-span-1 bg-slate-800 p-4 rounded-2xl shadow-md">
+                <div className="text-xs text-slate-300">Total Kunjungan (Jan-Sep)</div>
                 <div className="text-2xl font-semibold">{totalVisits.toLocaleString()}</div>
-                <div className="text-sm text-slate-500">Rata-rata / bulan: {avgMonthly.toLocaleString()}</div>
+                <div className="text-sm text-slate-300">Rata-rata / bulan: {avgMonthly.toLocaleString()}</div>
               </div>
-              <div className="col-span-1 bg-white p-4 rounded-2xl shadow-md">
-                <div className="text-xs text-slate-500">Jumlah Tenaga Kesehatan</div>
+              <div className="col-span-1 bg-slate-800 p-4 rounded-2xl shadow-md">
+                <div className="text-xs text-slate-300">Jumlah Tenaga Kesehatan</div>
                 <div className="text-2xl font-semibold">{staffCount}</div>
-                <div className="text-sm text-slate-500">Dokter: {staff.find(s=>s.role.includes('Dokter'))?.count ?? 0}</div>
+                <div className="text-sm text-slate-300">Dokter: {staff.find(s=>s.role.includes('Dokter'))?.count ?? 0}</div>
               </div>
-              <div className="col-span-1 bg-white p-4 rounded-2xl shadow-md">
-                <div className="text-xs text-slate-500">Peralatan Kritikal</div>
+              <div className="col-span-1 bg-slate-800 p-4 rounded-2xl shadow-md">
+                <div className="text-xs text-slate-300">Peralatan Kritikal</div>
                 <div className="text-2xl font-semibold">{equipmentCritical}</div>
-                <div className="text-sm text-slate-500">Butuh tindakan cepat</div>
+                <div className="text-sm text-slate-300">Butuh tindakan cepat</div>
               </div>
             </motion.div>
 
-            <div className="bg-white p-4 rounded-2xl shadow-md mb-4">
+            <div className="bg-slate-800 p-4 rounded-2xl shadow-md mb-4">
               <div className="flex items-center justify-between mb-2">
                 <div>
                   <h3 className="text-lg font-semibold">Tren Kunjungan Rawat Jalan</h3>
-                  <div className="text-xs text-slate-500">Data: Januari — September 2025</div>
+                  <div className="text-xs text-slate-300">Data: Januari — September 2025</div>
                 </div>
-                <div className="text-xs text-slate-500">Update setiap 5 menit (event-driven)</div>
+                <div className="text-xs text-slate-300">Update setiap 5 menit (event-driven)</div>
               </div>
               <VisitsLine />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-2xl shadow-md">
+              <div className="bg-slate-800 p-4 rounded-2xl shadow-md">
                 <h4 className="font-semibold mb-2">PONED — Kasus per Bulan</h4>
                 <PonedBar />
               </div>
 
-              <div className="bg-white p-4 rounded-2xl shadow-md">
+              <div className="bg-slate-800 p-4 rounded-2xl shadow-md">
                 <h4 className="font-semibold mb-2">Prediksi Kunjungan (AI)</h4>
                 <div className="text-sm text-slate-600 mb-2">{aiStatus.message}</div>
                 <div className="flex gap-2">
@@ -221,7 +221,7 @@ export default function DASHATDashboardPreview() {
                     Contoh: Prediksi 3 bulan ke depan ditambahkan sebagai garis putus-putus pada grafik kunjungan.
                   </div>
                 ) : (
-                  <div className="mt-3 text-xs text-slate-500">Belum ada prediksi.</div>
+                  <div className="mt-3 text-xs text-slate-300">Belum ada prediksi.</div>
                 )}
               </div>
             </div>
@@ -230,7 +230,7 @@ export default function DASHATDashboardPreview() {
 
           {/* RIGHT: Side Panels */}
           <aside className="col-span-4">
-            <div className="bg-white p-4 rounded-2xl shadow-md mb-4">
+            <div className="bg-slate-800 p-4 rounded-2xl shadow-md mb-4">
               <h4 className="font-semibold mb-2">AI Orchestrator</h4>
               <div className="text-sm text-slate-600 mb-3">Panel orkestrasi AI: hubungkan model prediksi, deteksi fraud, dan NLP chatbot warga.</div>
               <div className="space-y-2">
@@ -238,28 +238,28 @@ export default function DASHATDashboardPreview() {
                 <button className="w-full text-left px-3 py-2 rounded-2xl bg-yellow-50 border border-yellow-200">Deteksi Fraud (IsolationForest)</button>
                 <button className="w-full text-left px-3 py-2 rounded-2xl bg-violet-50 border border-violet-200">Forecasting (LSTM)</button>
               </div>
-              <div className="mt-3 text-xs text-slate-500">Catatan: saat integrasi nyata, tombol ini memicu endpoint backend dan menampilkan progress real-time.</div>
+              <div className="mt-3 text-xs text-slate-300">Catatan: saat integrasi nyata, tombol ini memicu endpoint backend dan menampilkan progress real-time.</div>
             </div>
 
-            <div className="bg-white p-4 rounded-2xl shadow-md mb-4">
+            <div className="bg-slate-800 p-4 rounded-2xl shadow-md mb-4">
               <h4 className="font-semibold mb-2">Inventaris Peralatan</h4>
               <EquipmentList />
-              <div className="mt-3 text-xs text-slate-500">Sumber: Asessmen Peralatan Standard Ibra.xlsx</div>
+              <div className="mt-3 text-xs text-slate-300">Sumber: Asessmen Peralatan Standard Ibra.xlsx</div>
             </div>
 
-            <div className="bg-white p-4 rounded-2xl shadow-md">
+            <div className="bg-slate-800 p-4 rounded-2xl shadow-md">
               <h4 className="font-semibold mb-2">SDM & Kapasitas</h4>
               <div className="text-sm text-slate-600 mb-2">Total tenaga: {staffCount}</div>
               <div className="overflow-auto max-h-48">
                 <StaffTable />
               </div>
-              <div className="mt-2 text-xs text-slate-500">Sumber: Daftar_isian_new.xlsx</div>
+              <div className="mt-2 text-xs text-slate-300">Sumber: Daftar_isian_new.xlsx</div>
             </div>
           </aside>
         </div>
 
         <footer className="mt-6 grid grid-cols-3 gap-4">
-          <div className="bg-white p-4 rounded-2xl shadow-md col-span-2">
+          <div className="bg-slate-800 p-4 rounded-2xl shadow-md col-span-2">
             <h4 className="font-semibold mb-2">Rekomendasi & Roadmap (Ringkas)</h4>
             <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
               <li>Segera tindaklanjuti peralatan kritikal (Defibrillator & ECG) — tambahkan ke procurement Q1 2026.</li>
@@ -269,7 +269,7 @@ export default function DASHATDashboardPreview() {
             </ul>
           </div>
 
-          <div className="bg-white p-4 rounded-2xl shadow-md">
+          <div className="bg-slate-800 p-4 rounded-2xl shadow-md">
             <h4 className="font-semibold mb-2">Metadata</h4>
             <div className="text-xs text-slate-600">Data digabung dari: 6 file (PPTX, XLSX). Preview ini menampilkan ringkasan yang dapat di-link ke DASHAT production.</div>
           </div>
