@@ -49,10 +49,13 @@ export default function DASHATFullMenu() {
   function MenuButton({ id, icon, label }) {
     return (
       <button
-        onClick={() => setActive(id)}
-        className={`flex items-center gap-3 w-full text-sm px-3 py-2 rounded-lg hover:bg-slate-100 transition ${active===id? 'bg-slate-200 font-semibold':''}`}
-      >
-        <span className="text-slate-600">{icon}</span>
+  onClick={() => setActive(id)}
+  className={`flex items-center gap-3 w-full text-sm px-3 py-2 rounded-lg transition ${
+    active === id
+      ? "bg-slate-700 text-slate-100 font-semibold"
+      : "text-slate-300 hover:bg-slate-800" }`}
+>
+        <span className="text-slate-200">{icon}</span>
         <span>{label}</span>
       </button>
     );
@@ -76,14 +79,14 @@ export default function DASHATFullMenu() {
     switch(active) {
       case 'profile':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Profil Puskesmas</h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <h3 className="font-medium">Visi</h3>
-                <p className="text-slate-700 mt-1">{MOCK_PROFILE.vision}</p>
+                <p className="text-slate-100 mt-1">{MOCK_PROFILE.vision}</p>
                 <h3 className="font-medium mt-4">Misi</h3>
-                <ul className="list-disc pl-5 text-slate-700 mt-1">
+                <ul className="list-disc pl-5 text-slate-100 mt-1">
                   {MOCK_PROFILE.mission.map((m, i) => <li key={i}>{m}</li>)}
                 </ul>
               </div>
@@ -93,7 +96,7 @@ export default function DASHATFullMenu() {
                   <table className="w-full text-sm">
                     <tbody>
                       {Object.entries(MOCK_PROFILE.staff).map(([k,v])=> (
-                        <tr key={k} className="odd:bg-slate-50">
+                        <tr key={k} className="odd:bg-slate-700">
                           <td className="py-2 capitalize">{k.replace('_',' ')}</td>
                           <td className="py-2 font-medium">{v}</td>
                         </tr>
@@ -102,7 +105,7 @@ export default function DASHATFullMenu() {
                   </table>
                 </div>
                 <h3 className="font-medium mt-4">Fasilitas Pelayanan</h3>
-                <ul className="list-disc pl-5 text-slate-700 mt-1">
+                <ul className="list-disc pl-5 text-slate-100 mt-1">
                   {MOCK_PROFILE.services.map((s,i)=><li key={i}>{s}</li>)}
                 </ul>
               </div>
@@ -112,20 +115,20 @@ export default function DASHATFullMenu() {
 
       case 'absensi':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-4">Absensi Tenaga Kesehatan</h2>
-            <p className="text-sm text-slate-600">(Mock) Sistem absensi terintegrasi dengan fingerprint dan mobile check-in. Tampilkan summary kehadiran, izin, dan cuti.</p>
+            <p className="text-sm text-slate-200">(Mock) Sistem absensi terintegrasi dengan fingerprint dan mobile check-in. Tampilkan summary kehadiran, izin, dan cuti.</p>
             <div className="mt-4 grid grid-cols-3 gap-4">
-              <div className="p-4 bg-slate-50 rounded-lg">
-                <div className="text-xs text-slate-500">Hadir Hari Ini</div>
+              <div className="p-4 bg-slate-700 rounded-lg">
+                <div className="text-xs text-slate-300">Hadir Hari Ini</div>
                 <div className="text-2xl font-semibold">{Math.round(staffCount*0.9)}</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded-lg">
-                <div className="text-xs text-slate-500">Izin</div>
+              <div className="p-4 bg-slate-700 rounded-lg">
+                <div className="text-xs text-slate-300">Izin</div>
                 <div className="text-2xl font-semibold">{Math.round(staffCount*0.05)}</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded-lg">
-                <div className="text-xs text-slate-500">Telat</div>
+              <div className="p-4 bg-slate-700 rounded-lg">
+                <div className="text-xs text-slate-300">Telat</div>
                 <div className="text-2xl font-semibold">{Math.round(staffCount*0.02)}</div>
               </div>
             </div>
@@ -134,21 +137,21 @@ export default function DASHATFullMenu() {
 
       case 'pendaftaran':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Pendaftaran</h2>
-            <p className="text-sm text-slate-600">Form pendaftaran online & antrian virtual (integrasi Bandung Sehat AI / SISRUTE).</p>
+            <p className="text-sm text-slate-200">Form pendaftaran online & antrian virtual (integrasi Bandung Sehat AI / SISRUTE).</p>
             <div className="mt-4 grid grid-cols-2 gap-4">
-              <div className="p-4 bg-slate-50 rounded-lg">Form Entry Pasien (mock)</div>
-              <div className="p-4 bg-slate-50 rounded-lg">Antrian Virtual: 12 pasien</div>
+              <div className="p-4 bg-slate-700 rounded-lg">Form Entry Pasien (mock)</div>
+              <div className="p-4 bg-slate-700 rounded-lg">Antrian Virtual: 12 pasien</div>
             </div>
           </div>
         );
 
       case 'data-pengunjung':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Data Pengunjung</h2>
-            <p className="text-sm text-slate-600">Grafik distribusi: Kapitasi / Non Kapitasi / PONED / Umum.</p>
+            <p className="text-sm text-slate-200">Grafik distribusi: Kapitasi / Non Kapitasi / PONED / Umum.</p>
             <div className="mt-4">
               <VisitsChart />
             </div>
@@ -157,30 +160,30 @@ export default function DASHATFullMenu() {
 
       case 'keuangan':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Keuangan</h2>
-            <p className="text-sm text-slate-600">Ringkasan pendapatan & pengeluaran, realisasi APBD, dan laporan klaim BPJS.</p>
+            <p className="text-sm text-slate-200">Ringkasan pendapatan & pengeluaran, realisasi APBD, dan laporan klaim BPJS.</p>
             <div className="mt-4 grid grid-cols-2 gap-4">
-              <div className="p-4 bg-slate-50 rounded-lg">Pendapatan (YTD): Rp 1.2 M</div>
-              <div className="p-4 bg-slate-50 rounded-lg">Pengeluaran (YTD): Rp 950 M</div>
+              <div className="p-4 bg-slate-700 rounded-lg">Pendapatan (YTD): Rp 1.2 M</div>
+              <div className="p-4 bg-slate-700 rounded-lg">Pengeluaran (YTD): Rp 950 M</div>
             </div>
           </div>
         );
 
       case 'farmasi':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Farmasi</h2>
-            <p className="text-sm text-slate-600">Stok obat, pemesanan otomatis (reorder point), dan delivery to home integrasi.</p>
+            <p className="text-sm text-slate-200">Stok obat, pemesanan otomatis (reorder point), dan delivery to home integrasi.</p>
             <div className="mt-4">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-slate-700"><th>Obat</th><th>Stok</th><th>Status</th></tr>
+                  <tr className="text-left text-slate-100"><th>Obat</th><th>Stok</th><th>Status</th></tr>
                 </thead>
                 <tbody>
-                  <tr className="odd:bg-slate-50"><td>Paracetamol</td><td>120</td><td>Ok</td></tr>
+                  <tr className="odd:bg-slate-700"><td>Paracetamol</td><td>120</td><td>Ok</td></tr>
                   <tr><td>Amoksisilin</td><td>40</td><td>Limit</td></tr>
-                  <tr className="odd:bg-slate-50"><td>Vaksin MR</td><td>10</td><td>Reorder</td></tr>
+                  <tr className="odd:bg-slate-700"><td>Vaksin MR</td><td>10</td><td>Reorder</td></tr>
                 </tbody>
               </table>
             </div>
@@ -189,25 +192,25 @@ export default function DASHATFullMenu() {
 
       case 'aset':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Aset</h2>
-            <p className="text-sm text-slate-600">Daftar aset tetap, umur ekonomis, dan jadwal pemeliharaan.</p>
+            <p className="text-sm text-slate-200">Daftar aset tetap, umur ekonomis, dan jadwal pemeliharaan.</p>
             <div className="mt-4 space-y-2">
-              <div className="p-3 bg-slate-50 rounded">Gedung Utama — Kondisi: Baik</div>
-              <div className="p-3 bg-slate-50 rounded">Ambulans — KM: 120.000 — Jadwal servis: 1 bulan</div>
-              <div className="p-3 bg-slate-50 rounded">Peralatan Radiologi — Jadwal kalibrasi: 6 bulan</div>
+              <div className="p-3 bg-slate-700 rounded">Gedung Utama — Kondisi: Baik</div>
+              <div className="p-3 bg-slate-700 rounded">Ambulans — KM: 120.000 — Jadwal servis: 1 bulan</div>
+              <div className="p-3 bg-slate-700 rounded">Peralatan Radiologi — Jadwal kalibrasi: 6 bulan</div>
             </div>
           </div>
         );
 
       case 'inventory':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Inventory Peralatan</h2>
-            <p className="text-sm text-slate-600">Status operasional peralatan (sumber: Asessmen Peralatan Standard Ibra.xlsx).</p>
+            <p className="text-sm text-slate-200">Status operasional peralatan (sumber: Asessmen Peralatan Standard Ibra.xlsx).</p>
             <div className="mt-4 grid gap-2">
               {MOCK_INVENTORY.map((it,i)=> (
-                <div key={i} className="flex justify-between items-center p-3 bg-slate-50 rounded">
+                <div key={i} className="flex justify-between items-center p-3 bg-slate-700 rounded">
                   <div>{it.item}</div>
                   <div className={`px-2 py-1 rounded ${it.status==='Good'? 'bg-green-100 text-green-800': it.status==='Repair'? 'bg-yellow-100 text-yellow-800':'bg-red-100 text-red-800'}`}>{it.status} • {it.qty}</div>
                 </div>
@@ -218,61 +221,61 @@ export default function DASHATFullMenu() {
 
       case 'pengaduan':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Pengaduan</h2>
-            <p className="text-sm text-slate-600">Daftar pengaduan warga, status tindak lanjut, dan SLA penyelesaian.</p>
+            <p className="text-sm text-slate-200">Daftar pengaduan warga, status tindak lanjut, dan SLA penyelesaian.</p>
             <div className="mt-4">
-              <div className="p-3 bg-slate-50 rounded">#12345: Keluhan antrian — Status: Selesai</div>
-              <div className="p-3 bg-slate-50 rounded">#12346: Keluhan obat kosong — Status: Dalam Proses</div>
+              <div className="p-3 bg-slate-700 rounded">#12345: Keluhan antrian — Status: Selesai</div>
+              <div className="p-3 bg-slate-700 rounded">#12346: Keluhan obat kosong — Status: Dalam Proses</div>
             </div>
           </div>
         );
 
       case 'konsultasi':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Konsultasi / Pemeriksaan Online (Halo Doc)</h2>
-            <p className="text-sm text-slate-600">Integrasi telemedicine: chat, video call, resep elektronik, dan rujukan ke Puskesmas/RS.</p>
+            <p className="text-sm text-slate-200">Integrasi telemedicine: chat, video call, resep elektronik, dan rujukan ke Puskesmas/RS.</p>
             <div className="mt-4">Sesi aktif: 3 pasien (mock)</div>
           </div>
         );
 
       case 'pengadaan':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Administrasi Pengadaan</h2>
-            <p className="text-sm text-slate-600">SOP pengadaan, rencana kebutuhan tahunan, dan tracking tender/kontrak.</p>
+            <p className="text-sm text-slate-200">SOP pengadaan, rencana kebutuhan tahunan, dan tracking tender/kontrak.</p>
             <div className="mt-4">Tender aktif: Pengadaan alat USG — Status: Evaluasi</div>
           </div>
         );
 
       case 'claim-bpjs':
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Administrasi Klaim BPJS</h2>
-            <p className="text-sm text-slate-600">Integrasi VClaim: monitoring klaim, mismatch ICD-10, dan deteksi klaim ganda (AI anomaly detection).</p>
+            <p className="text-sm text-slate-200">Integrasi VClaim: monitoring klaim, mismatch ICD-10, dan deteksi klaim ganda (AI anomaly detection).</p>
             <div className="mt-4 grid grid-cols-2 gap-4">
-              <div className="p-4 bg-slate-50 rounded">Klaim hari ini: 24</div>
-              <div className="p-4 bg-slate-50 rounded">Klaim tertunda: 3</div>
+              <div className="p-4 bg-slate-700 rounded">Klaim hari ini: 24</div>
+              <div className="p-4 bg-slate-700 rounded">Klaim tertunda: 3</div>
             </div>
           </div>
         );
 
       default:
         return (
-          <div className="bg-white rounded-2xl p-6 shadow">
+          <div className="bg-slate-800 rounded-2xl p-6 shadow">
             <h2 className="text-xl font-semibold mb-2">Dashboard Utama</h2>
             <div className="grid grid-cols-3 gap-4">
-              <div className="p-4 bg-slate-50 rounded">
-                <div className="text-xs text-slate-500">Total Kunjungan (Jan-Sep)</div>
+              <div className="p-4 bg-slate-700 rounded">
+                <div className="text-xs text-slate-300">Total Kunjungan (Jan-Sep)</div>
                 <div className="text-2xl font-semibold">{totalVisits.toLocaleString()}</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded">
-                <div className="text-xs text-slate-500">Tenaga Kesehatan</div>
+              <div className="p-4 bg-slate-700 rounded">
+                <div className="text-xs text-slate-300">Tenaga Kesehatan</div>
                 <div className="text-2xl font-semibold">{staffCount}</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded">
-                <div className="text-xs text-slate-500">Peralatan Kritikal</div>
+              <div className="p-4 bg-slate-700 rounded">
+                <div className="text-xs text-slate-300">Peralatan Kritikal</div>
                 <div className="text-2xl font-semibold">{MOCK_INVENTORY.filter(i=>i.qty===0).length}</div>
               </div>
             </div>
@@ -286,19 +289,19 @@ export default function DASHATFullMenu() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6">
+    <div className="min-h-screen bg-slate-900 text-slate-100 p-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-12 gap-6">
         <aside className="col-span-3">
-          <div className="bg-white rounded-2xl p-4 shadow">
+          <div className="bg-slate-800 rounded-2xl p-4 shadow">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-700 font-bold">D</div>
               <div>
                 <div className="text-sm font-semibold">DASHAT</div>
-                <div className="text-xs text-slate-500">Dashboard Puskesmas</div>
+                <div className="text-xs text-slate-300">Dashboard Puskesmas</div>
               </div>
             </div>
             <div className="mb-3">
-              <input value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Cari menu atau pasien..." className="w-full px-3 py-2 rounded-lg border" />
+              <input value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Cari menu atau pasien..." className="w-full px-3 py-2 rounded-lg border-slate-600" />
             </div>
             <nav className="space-y-1">
               <MenuButton id="dashboard" icon={<FaHospitalAlt />} label="Dashboard" />
@@ -326,10 +329,10 @@ export default function DASHATFullMenu() {
               <MenuButton id="pengadaan" icon={<FaFileInvoiceDollar />} label="Administrasi Pengadaan" />
               <MenuButton id="claim-bpjs" icon={<FaFileInvoiceDollar />} label="Administrasi Klaim BPJS" />
             </nav>
-            <div className="mt-4 text-xs text-slate-500">Role: Admin Puskesmas • Versi: DASHAT v0.1</div>
+            <div className="mt-4 text-xs text-slate-300">Role: Admin Puskesmas • Versi: DASHAT v0.1</div>
           </div>
 
-          <div className="mt-4 bg-white rounded-2xl p-4 shadow">
+          <div className="mt-4 bg-slate-800 rounded-2xl p-4 shadow">
             <h4 className="text-sm font-semibold mb-2">AI Orchestrator</h4>
             <div className="space-y-2">
               <button className="w-full px-3 py-2 rounded-lg bg-emerald-50 text-sm">Run Forecast (LSTM)</button>
