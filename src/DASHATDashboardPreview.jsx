@@ -261,8 +261,8 @@ export default function DASHATDashboardPreview() {
 
         <footer className="mt-6 grid grid-cols-3 gap-4">
           <div className="bg-slate-800 p-4 rounded-2xl shadow-md col-span-2">
-            <h4 className="font-semibold mb-2">Rekomendasi & Roadmap (Ringkas)</h4>
-            <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
+           <h4 className="font-semibold mb-2 text-slate-100">Rekomendasi & Roadmap (Ringkas)</h4>
+              <ul className="list-disc pl-5 text-sm text-slate-200 space-y-1">
               <li>Segera tindaklanjuti peralatan kritikal (Defibrillator & ECG) — tambahkan ke procurement Q1 2026.</li>
               <li>Jalankan pilot Puskesmas 24 jam (Ibrahim Adji) dengan model kapasitasi dan renegosiasi BPJS.</li>
               <li>Integrasi FHIR & VClaim: prioritaskan MoU dengan Kemenkes/BPJS untuk akses API.</li>
