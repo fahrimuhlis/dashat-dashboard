@@ -233,11 +233,12 @@ export default function DASHATDashboardPreview() {
             <div className="bg-slate-800 p-4 rounded-2xl shadow-md mb-4">
               <h4 className="font-semibold mb-2">AI Orchestrator</h4>
               <div className="text-sm text-slate-300 mb-3">Panel orkestrasi AI: hubungkan model prediksi, deteksi fraud, dan NLP chatbot warga.</div>
-              <div className="space-y-2">
-                <button className="w-full text-left px-3 py-2 rounded-2xl bg-emerald-50 border border-emerald-200">Orkestrasi: Chatbot NLP (Bandung Sehat AI)</button>
-                <button className="w-full text-left px-3 py-2 rounded-2xl bg-yellow-50 border border-yellow-200">Deteksi Fraud (IsolationForest)</button>
-                <button className="w-full text-left px-3 py-2 rounded-2xl bg-violet-50 border border-violet-200">Forecasting (LSTM)</button>
-              </div>
+             <div className="space-y-2">
+                <button className="w-full text-left px-3 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 font-medium">Orkestrasi: Chatbot NLP (Bandung Sehat AI)</button>
+                <button className="w-full text-left px-3 py-2 rounded-2xl bg-yellow-50 border border-yellow-200 text-yellow-900 font-medium">Deteksi Fraud (IsolationForest)</button>
+                <button className="w-full text-left px-3 py-2 rounded-2xl bg-violet-50 border border-violet-200 text-violet-900 font-medium">Forecasting (LSTM)</button>
+            </div>
+
               <div className="mt-3 text-xs text-slate-300">Catatan: saat integrasi nyata, tombol ini memicu endpoint backend dan menampilkan progress real-time.</div>
             </div>
 
